@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Metflix</string>
+    <string name="retry">Retry</string>
+    <string name="movies_header">Movies</string>
+</resources>

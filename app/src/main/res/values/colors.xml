@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#E51C44</color>
+    <color name="colorSecondary">#0C133D</color>
+    <color name="colorSecondaryLight">#243189</color>
+
+    <color name="yellow">#F5C518</color>
+    <color name="black">#000000</color>
+    <color name="darkGrey">#333333</color>
+    <color name="grey">#666666</color>
+    <color name="slateGrey">#6D6E71</color>
+    <color name="lightGrey">#D4D4D4</color>
+    <color name="mediumGrey">#999999</color>
+    <color name="superLightGrey">#F5F5F5</color>
+    <color name="white">#FFFFFF</color>
+</resources>

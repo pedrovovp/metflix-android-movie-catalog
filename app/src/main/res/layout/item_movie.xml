@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="movie"
+            type="com.metflix.data.domain.Movie" />
+
+        <variable
+            name="fragment"
+            type="com.metflix.ui.MovieListFragment" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/movie_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:foreground="?selectableItemBackgroundBorderless"
+        android:clickable="true"
+        app:cardBackgroundColor="@color/colorSecondaryLight"
+        app:cardElevation="5dp"
+        android:focusable="true">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:scaleType="centerCrop"
+                android:adjustViewBounds="true"
+                tools:background="@color/darkGrey"
+                app:imageFromUrl="@{movie.poster_path}"/>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/colorSecondaryLight"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="5dp">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/movie_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{movie.title}"
+                    android:lines="1"
+                    android:ellipsize="end"
+                    tools:text="Vingadores"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp">
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:layout_gravity="center_vertical">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:src="@drawable/ic_star_rate"
+                            android:tint="@color/yellow" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/movie_rating"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="3dp"
+                            android:textColor="@color/white"
+                            android:textSize="12dp"
+                            android:text="@{Double.toString(movie.vote_average)}"
+                            tools:text="9.0" />
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/save_movie_icon"
+                        android:layout_width="19dp"
+                        android:layout_height="19dp"
+                        android:src="@drawable/ic_bookmark"
+                        android:onClick="@{}"
+                        android:tint="@color/colorPrimary"
+                        android:layout_gravity="end|center_vertical"/>
+                </FrameLayout>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.cardview.widget.CardView>
+</layout>
