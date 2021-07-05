@@ -3,7 +3,7 @@ package com.metflix.data.paging
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.metflix.data.api.AppService
-import com.metflix.data.domain.Movie
+import com.metflix.data.model.Movie
 import java.lang.Exception
 
 class MoviePagingSource(private val service: AppService) : PagingSource<Int, Movie>() {

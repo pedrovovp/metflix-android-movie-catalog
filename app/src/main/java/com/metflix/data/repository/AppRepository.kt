@@ -1,8 +1,8 @@
-package com.metflix.data
+package com.metflix.data.repository
 
 import androidx.lifecycle.LiveData
 import androidx.paging.PagingData
-import com.metflix.data.domain.Movie
+import com.metflix.data.model.Movie
 import com.metflix.utils.ResultData
 import kotlinx.coroutines.flow.Flow
 

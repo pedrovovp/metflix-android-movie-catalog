@@ -1,7 +1,7 @@
 package com.metflix.di
 
-import com.metflix.data.AppRepository
-import com.metflix.data.AppRepositoryImpl
+import com.metflix.data.repository.AppRepository
+import com.metflix.data.repository.AppRepositoryImpl
 import com.metflix.data.api.AppInterceptor
 import com.metflix.data.api.AppService
 import com.metflix.data.api.AppService.Companion.SERVER_HOST

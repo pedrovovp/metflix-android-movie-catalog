@@ -1,4 +1,4 @@
-package com.metflix.data.domain
+package com.metflix.data.model
 
 data class ListResponse<T>(
     val page: Int,

@@ -1,7 +1,7 @@
 package com.metflix.data.api
 
-import com.metflix.data.domain.ListResponse
-import com.metflix.data.domain.Movie
+import com.metflix.data.model.ListResponse
+import com.metflix.data.model.Movie
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path

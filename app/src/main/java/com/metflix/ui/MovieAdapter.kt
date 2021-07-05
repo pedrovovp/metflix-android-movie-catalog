@@ -6,17 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.LifecycleObserver
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
-import org.koin.android.ext.android.inject
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.metflix.R
-import com.metflix.data.domain.Movie
+import com.metflix.data.model.Movie
 import com.metflix.databinding.ItemMovieBinding
-import com.metflix.viewmodel.MovieListViewModel
 
 class MovieAdapter(): PagingDataAdapter<Movie, MovieAdapter.ViewHolder>(ProductDiffCallback){
 

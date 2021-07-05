@@ -6,7 +6,7 @@
     <data>
         <variable
             name="movie"
-            type="com.metflix.data.domain.Movie" />
+            type="com.metflix.data.model.Movie" />
 
         <variable
             name="fragment"
