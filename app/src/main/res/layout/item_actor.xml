@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="actor"
+            type="com.metflix.domain.entity.Actor" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/colorSecondaryLight"
+        app:cardCornerRadius="5dp"
+        android:layout_marginEnd="10dp">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="100dp"
+            android:layout_height="150dp"
+            app:imageFromUrl="@{actor.profilePath}"
+            android:scaleType="centerCrop"
+            android:adjustViewBounds="true"
+            tools:background="@color/superLightGrey" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="5dp">
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{actor.name}"
+                    tools:text="Chris Evans"
+                    android:textColor="@color/white"
+                    android:textAlignment="center"
+                    android:textSize="14sp"
+                    android:singleLine="true"
+                    android:ellipsize="end"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{actor.character}"
+                    tools:text="Capitão América"
+                    android:singleLine="true"
+                    android:ellipsize="end"
+                    android:textColor="@color/mediumGrey"
+                    android:textAlignment="center"
+                    android:textSize="12sp"/>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.cardview.widget.CardView>
+</layout>

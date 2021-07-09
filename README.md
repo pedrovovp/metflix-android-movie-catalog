@@ -7,7 +7,7 @@ Movie Catalog Android App, build with [Kotlin] using Androidx and MVVM architetu
 - [Material Design](https://material.io/develop/android)
 - [Navigation](https://developer.android.com/jetpack/androidx/releases/navigation)
 - [Glide](https://github.com/bumptech/glide)
-- [Paging](https://developer.android.com/jetpack/androidx/releases/paging)
+- [Paging 3](https://developer.android.com/topic/libraries/architecture/paging/v3-overview)
 
 ### Networking
 - [Retrofit 2](https://square.github.io/retrofit/)

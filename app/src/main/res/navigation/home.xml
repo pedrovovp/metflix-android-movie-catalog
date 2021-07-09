@@ -12,6 +12,9 @@
             android:id="@+id/action_movieListFragment_to_movieFragment"
             app:destination="@id/movieFragment"
             app:popUpTo="@id/movieListFragment" />
+        <action
+            android:id="@+id/action_movieListFragment_to_watchlistFragment"
+            app:destination="@id/watchlistFragment" />
     </fragment>
     <fragment
         android:id="@+id/movieFragment"
@@ -21,4 +24,8 @@
             android:name="movieId"
             app:argType="long" />
     </fragment>
+    <fragment
+        android:id="@+id/watchlistFragment"
+        android:name="com.metflix.ui.WatchlistFragment"
+        android:label="WatchlistFragment" />
 </navigation>

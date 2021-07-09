@@ -11,7 +11,7 @@ import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.metflix.R
-import com.metflix.data.model.Movie
+import com.metflix.domain.entity.Movie
 import com.metflix.databinding.ItemMovieBinding
 
 class MovieAdapter(): PagingDataAdapter<Movie, MovieAdapter.ViewHolder>(ProductDiffCallback){
@@ -50,7 +50,7 @@ class MovieAdapter(): PagingDataAdapter<Movie, MovieAdapter.ViewHolder>(ProductD
     }
 }
 
-private object ProductDiffCallback : DiffUtil.ItemCallback<Movie>() {
+object ProductDiffCallback : DiffUtil.ItemCallback<Movie>() {
     override fun areItemsTheSame(oldItem: Movie, newItem: Movie): Boolean {
         return oldItem.id == newItem.id
     }

@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
+        android:id="@+id/app_bar_watchlist"
         android:icon="@drawable/ic_bookmark_filled_white"
         android:title="Item"
         app:showAsAction="always" />

@@ -5,12 +5,13 @@ import android.view.View
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import com.metflix.R
 import com.metflix.common.BindingFragment
-import com.metflix.data.paging.MovieLoadStateAdapter
+import com.metflix.adapter.MovieLoadStateAdapter
 import com.metflix.databinding.FragmentMovieListBinding
-import com.metflix.viewmodel.MovieListViewModel
+import com.metflix.presentation.MovieListViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -35,6 +36,16 @@ class MovieListFragment : BindingFragment<FragmentMovieListBinding>() {
         getMovies()
         binding.retryButton.setOnClickListener {
             movieAdapter.retry()
+        }
+
+        binding.toolbar.setOnMenuItemClickListener {
+            when(it.itemId) {
+                R.id.app_bar_watchlist -> {
+                    findNavController().navigate(R.id.action_movieListFragment_to_watchlistFragment)
+                    true
+                }
+                else -> false
+            }
         }
     }
 
@@ -68,5 +79,4 @@ class MovieListFragment : BindingFragment<FragmentMovieListBinding>() {
             }
         }
     }
-
 }

@@ -1,0 +1,16 @@
+
+android {
+    compileSdkVersion compile_sdk_version
+}
+
+dependencies {
+    implementation "io.insert-koin:koin-android:$koin_version"
+    implementation "io.insert-koin:koin-core:$koin_version"
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version"
+
+    implementation "androidx.paging:paging-runtime-ktx:3.0.0"
+
+    testImplementation "junit:junit:$junit_version"
+}

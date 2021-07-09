@@ -3,7 +3,7 @@ package com.metflix.binding
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
-import com.metflix.data.api.AppService.Companion.IMAGE_PATH
+import com.metflix.data_remote.AppService.Companion.IMAGE_PATH
 
 object BindingAdapters {
 

@@ -6,7 +6,7 @@
     <data>
         <variable
             name="movie"
-            type="com.metflix.data.model.Movie" />
+            type="com.metflix.domain.entity.Movie" />
 
         <variable
             name="fragment"
@@ -37,7 +37,7 @@
                 android:scaleType="centerCrop"
                 android:adjustViewBounds="true"
                 tools:background="@color/darkGrey"
-                app:imageFromUrl="@{movie.poster_path}"/>
+                app:imageFromUrl="@{movie.posterPath}"/>
 
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
@@ -84,7 +84,7 @@
                             android:layout_marginLeft="3dp"
                             android:textColor="@color/white"
                             android:textSize="12dp"
-                            android:text="@{Double.toString(movie.vote_average)}"
+                            android:text="@{Double.toString(movie.voteAverage)}"
                             tools:text="9.0" />
                     </androidx.appcompat.widget.LinearLayoutCompat>
 
