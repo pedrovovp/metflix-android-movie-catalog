@@ -5,7 +5,7 @@ import com.metflix.domain.entity.Movie
 import com.metflix.domain.repository.AppRepository
 import kotlinx.coroutines.flow.Flow
 
-open class ListPopularMoviesUseCase(private val repository: AppRepository) {
+open class ListSavedMoviesUseCase(private val repository: AppRepository) {
 
-    fun execute(): Flow<PagingData<Movie>> = repository.listPopularMovies()
+    fun execute(): Flow<List<Movie>> = repository.getSavedMovies()
 }

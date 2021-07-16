@@ -7,9 +7,15 @@ import com.metflix.domain.entity.Movie
 import kotlinx.coroutines.flow.Flow
 
 interface AppRepository {
-    fun getPopularMovies(): Flow<PagingData<Movie>>
+    fun listPopularMovies(): Flow<PagingData<Movie>>
 
     fun getMovieDetails(movieId: Int): LiveData<Movie>
 
     fun getActors(movieId: Int): LiveData<List<Actor>>
+
+    fun getSavedMovies(): Flow<List<Movie>>
+
+    suspend fun saveMovie(movie: Movie)
+
+    suspend fun removeMovie(movie: Movie)
 }

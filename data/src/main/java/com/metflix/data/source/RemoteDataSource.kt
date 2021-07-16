@@ -2,14 +2,14 @@ package com.metflix.data.source
 
 import androidx.lifecycle.LiveData
 import androidx.paging.PagingData
-import com.metflix.data.model.ActorsResponse
-import com.metflix.data.model.MovieResponse
+import com.metflix.data.model.ActorsData
+import com.metflix.data.model.MovieData
 import kotlinx.coroutines.flow.Flow
 
 interface RemoteDataSource {
-    fun getPopularMovies(): Flow<PagingData<MovieResponse>>
+    fun getPopularMovies(): Flow<PagingData<MovieData>>
 
-    fun getMovieDetails(movieId: Int): LiveData<MovieResponse>
+    fun getMovieDetails(movieId: Int): LiveData<MovieData>
 
-    fun getActors(movieId: Int): LiveData<List<ActorsResponse.Actor>>
+    fun getActors(movieId: Int): LiveData<List<ActorsData.Actor>>
 }

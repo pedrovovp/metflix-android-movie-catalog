@@ -8,9 +8,6 @@
             name="movie"
             type="com.metflix.domain.entity.Movie" />
 
-        <variable
-            name="fragment"
-            type="com.metflix.ui.MovieListFragment" />
     </data>
 
     <androidx.cardview.widget.CardView
@@ -37,7 +34,7 @@
                 android:scaleType="centerCrop"
                 android:adjustViewBounds="true"
                 tools:background="@color/darkGrey"
-                app:imageFromUrl="@{movie.posterPath}"/>
+                app:imageFromUrlReduced="@{movie.posterPath}"/>
 
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
@@ -81,9 +78,9 @@
                             android:id="@+id/movie_rating"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="3dp"
+                            android:layout_marginStart="3dp"
                             android:textColor="@color/white"
-                            android:textSize="12dp"
+                            android:textSize="12sp"
                             android:text="@{Double.toString(movie.voteAverage)}"
                             tools:text="9.0" />
                     </androidx.appcompat.widget.LinearLayoutCompat>
@@ -92,9 +89,7 @@
                         android:id="@+id/save_movie_icon"
                         android:layout_width="19dp"
                         android:layout_height="19dp"
-                        android:src="@drawable/ic_bookmark"
-                        android:onClick="@{}"
-                        android:tint="@color/colorPrimary"
+                        android:src="@drawable/ic_bookmark_primary"
                         android:layout_gravity="end|center_vertical"/>
                 </FrameLayout>
             </androidx.appcompat.widget.LinearLayoutCompat>

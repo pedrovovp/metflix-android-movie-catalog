@@ -21,9 +21,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="?actionBarSize"
                 app:title="Watchlist"
+                app:navigationIcon="?homeAsUpIndicator"
+                app:popupTheme="@style/AppTheme"
+                app:contentInsetStartWithNavigation="0dp"
                 app:titleTextAppearance="@style/toolbarTitle"
-                app:layout_scrollFlags="scroll"
-                app:menu="@menu/menu_home_appbar"/>
+                app:layout_scrollFlags="scroll"/>
         </com.google.android.material.appbar.AppBarLayout>
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view"

@@ -5,7 +5,7 @@
     <item
         android:id="@+id/watchList"
         android:checked="false"
-        android:icon="@drawable/ic_bookmark"
+        android:icon="@drawable/ic_bookmark_primary"
         android:title="Watchlist"
         app:showAsAction="always" />
 </menu>

@@ -11,8 +11,7 @@ val dataModules = module {
     factory<AppRepository> {
         AppRepositoryImpl(
             remoteDataSource = get(),
-            movieMapper = MovieMapper(),
-            actorMapper = ActorMapper()
+            localDataSource = get()
         )
     }
 }

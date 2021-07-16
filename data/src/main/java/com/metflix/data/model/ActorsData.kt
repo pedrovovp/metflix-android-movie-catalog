@@ -1,6 +1,6 @@
 package com.metflix.data.model
 
-data class ActorsResponse(
+data class ActorsData(
     val id: Int,
     val cast: List<Actor>
 ) {

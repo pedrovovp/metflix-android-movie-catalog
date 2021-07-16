@@ -8,11 +8,15 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import com.metflix.R
+import com.metflix.adapter.MovieAdapter
 import com.metflix.common.BindingFragment
 import com.metflix.adapter.MovieLoadStateAdapter
 import com.metflix.databinding.FragmentMovieListBinding
+import com.metflix.domain.entity.Movie
 import com.metflix.presentation.MovieListViewModel
+import com.metflix.presentation.ViewState
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import org.koin.android.ext.android.inject
@@ -22,18 +26,30 @@ class MovieListFragment : BindingFragment<FragmentMovieListBinding>() {
 
     private val viewModel: MovieListViewModel by inject()
     private var movieJob: Job? = null
-    private val movieAdapter = MovieAdapter()
+    lateinit var movieAdapter: MovieAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.recyclerView.apply {
-            adapter = movieAdapter.withLoadStateHeaderAndFooter(header = MovieLoadStateAdapter { movieAdapter.retry() },
-                footer = MovieLoadStateAdapter { movieAdapter.retry() })
-            hasFixedSize()
-        }
 
-        initAdapter()
-        getMovies()
+        viewModel.listSavedMovies()
+        viewModel.savedMovies().observe(viewLifecycleOwner, {
+            when (it.status) {
+                ViewState.Status.LOADING -> binding.progressBar.visibility = View.VISIBLE
+                ViewState.Status.SUCCESS -> {
+                    if (!this::movieAdapter.isInitialized) {
+                        binding.progressBar.visibility = View.GONE
+                        initRecyclerView(it.data!!)
+                        getMovies()
+                    }
+                }
+                ViewState.Status.ERROR -> {
+                    binding.progressBar.visibility = View.GONE
+                    binding.retryButton.visibility = View.VISIBLE
+                    Toast.makeText(context, it.error?.message, Toast.LENGTH_LONG).show()
+                }
+            }
+        })
+
         binding.retryButton.setOnClickListener {
             movieAdapter.retry()
         }
@@ -49,7 +65,15 @@ class MovieListFragment : BindingFragment<FragmentMovieListBinding>() {
         }
     }
 
-    private fun initAdapter() {
+    private fun initRecyclerView(data: List<Movie>) {
+        movieAdapter = MovieAdapter(viewModel, data)
+
+        binding.recyclerView.apply {
+            adapter = movieAdapter.withLoadStateHeaderAndFooter(header = MovieLoadStateAdapter { movieAdapter.retry() },
+                footer = MovieLoadStateAdapter { movieAdapter.retry() })
+            hasFixedSize()
+        }
+
         movieAdapter.apply {
             addLoadStateListener { loadState ->
                 binding.recyclerView.isVisible = loadState.source.refresh is LoadState.NotLoading
@@ -74,7 +98,9 @@ class MovieListFragment : BindingFragment<FragmentMovieListBinding>() {
     private fun getMovies() {
         movieJob?.cancel()
         movieJob = lifecycleScope.launch {
-            viewModel.getPopularMovies().collect {
+            viewModel.listPopularMovies().catch { e ->
+                throw e
+            }.collect {
                 movieAdapter.submitData(it)
             }
         }

@@ -1,4 +1,4 @@
-package com.metflix.ui
+package com.metflix.adapter
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
