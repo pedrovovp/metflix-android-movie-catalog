@@ -36,10 +36,15 @@ class MovieListFragment : BindingFragment<FragmentMovieListBinding>() {
             when (it.status) {
                 ViewState.Status.LOADING -> binding.progressBar.visibility = View.VISIBLE
                 ViewState.Status.SUCCESS -> {
+
+                    // Prevents adapter from reloading on every save/remove of movie
                     if (!this::movieAdapter.isInitialized) {
                         binding.progressBar.visibility = View.GONE
                         initRecyclerView(it.data!!)
                         getMovies()
+                    } else {
+                        // Attach adapter to recyclerView if it's initialized
+                        binding.recyclerView.adapter = movieAdapter
                     }
                 }
                 ViewState.Status.ERROR -> {

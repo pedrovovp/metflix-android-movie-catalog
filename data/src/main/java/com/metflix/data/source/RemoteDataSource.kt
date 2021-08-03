@@ -7,7 +7,7 @@ import com.metflix.data.model.MovieData
 import kotlinx.coroutines.flow.Flow
 
 interface RemoteDataSource {
-    fun getPopularMovies(): Flow<PagingData<MovieData>>
+    fun listPopularMovies(): Flow<PagingData<MovieData>>
 
     fun getMovieDetails(movieId: Int): LiveData<MovieData>
 

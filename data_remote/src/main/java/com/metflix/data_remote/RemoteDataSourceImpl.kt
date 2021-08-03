@@ -12,7 +12,7 @@ import com.metflix.data_remote.paging.MoviePagingSource
 import kotlinx.coroutines.flow.Flow
 
 class RemoteDataSourceImpl(private val service: AppService): RemoteDataSource {
-    override fun getPopularMovies(): Flow<PagingData<MovieData>> {
+    override fun listPopularMovies(): Flow<PagingData<MovieData>> {
         return Pager(
             config = PagingConfig(25, enablePlaceholders = true),
             pagingSourceFactory = { MoviePagingSource(service) },

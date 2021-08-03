@@ -1,21 +1,21 @@
 package com.metflix.domain.entity
 
 data class Movie(
-    val overview: String?,
-    val releaseDate: String?,
-    val genres: List<Genre>?,
-    val posterPath: String?,
-    val id: Int,
-    val title: String,
-    val popularity: Double?,
-    val voteCount: Int?,
-    val voteAverage: Double?,
-    val backdropPath: String?,
-    val runtime: String?
+    var id: Int = 0,
+    var title: String = "",
+    var overview: String? = "",
+    var releaseDate: String? = "",
+    var genres: List<Genre>? = ArrayList(),
+    var posterPath: String? = "",
+    var popularity: Double? = 0.0,
+    var voteCount: Int? = 0,
+    var voteAverage: Double? = 0.0,
+    var backdropPath: String? = "",
+    var runtime: String? = ""
 ) {
     data class Genre(
-        val id: Int,
-        val name: String
+        var id: Int,
+        var name: String
     )
 
     fun formatRuntime(): String {
@@ -32,7 +32,7 @@ data class Movie(
         var result = ""
 
         genres?.forEachIndexed { id, genre ->
-            result += if (id != genres.lastIndex) "${genre.name}, " else genre.name
+            result += if (id != genres!!.lastIndex) "${genre.name}, " else genre.name
         }
         return result
     }
