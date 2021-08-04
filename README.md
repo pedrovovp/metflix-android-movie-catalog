@@ -1,6 +1,6 @@
 # metflix-android-movie-catalog
 
-Movie Catalog Android App, build with [Kotlin] using Androidx and MVVM architeture.
+Movie Catalog Android App, built with [Kotlin] using Androidx, MVVM and Clean Architeture.
 
 ## Technology Used
 ### UI
